@@ -1,24 +1,13 @@
-'use client';
 import HeaderComponent from '@/components/common/HeaderComponent';
-import Link from 'next/link';
 import styles from '@/styles/header.module.scss';
-import { SlActionRedo, SlLayers } from 'react-icons/sl';
+import Link from 'next/link';
 import { PiSealCheck } from 'react-icons/pi';
-
-export default function Home() {
+import { SlLayers } from 'react-icons/sl';
+const About = (): JSX.Element => {
   return (
     <>
       <HeaderComponent
         rightElements={[
-          <button
-            key="share"
-            className={styles.box}
-            onClick={() => {
-              alert('지도공유');
-            }}
-          >
-            <SlActionRedo />
-          </button>,
           <Link key="feedback" href="/feedback" className={styles.box}>
             <PiSealCheck />
           </Link>,
@@ -27,7 +16,9 @@ export default function Home() {
           </Link>,
         ]}
       />
-      <main>테스트</main>
+      <main>서비스 소개입니다</main>
     </>
   );
-}
+};
+
+export default About;
