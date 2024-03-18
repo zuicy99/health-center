@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, Timestamp } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -13,5 +13,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // FB 데이터 베이스 사용을 위한 변수저장
 const appFireStore = getFirestore(app);
+// FB Timestamp
+const timeStamp = Timestamp;
 // 외부에서 활용
-export { app, appFireStore };
+export { app, appFireStore, timeStamp };
