@@ -16,3 +16,7 @@
 - copy-to-clipboard
 - git/github
 - 공공 API(보건소 API)
+
+## 프로젝트 빌드시 주의사항
+
+- Next.js 14 버전
