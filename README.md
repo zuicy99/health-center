@@ -3,6 +3,7 @@
 ## 배포
 
 - vercel
+- `https://health-center-zuicy-99.vercel.app/`
 
 ## 활용 API
 
