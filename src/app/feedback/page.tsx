@@ -6,10 +6,10 @@ import styles from '@/styles/header.module.scss';
 import Link from 'next/link';
 import { PiSealCheck } from 'react-icons/pi';
 import { SlLayers } from 'react-icons/sl';
-import { useColletion } from '@/hooks/useCollection';
+
 import dayjs from 'dayjs';
 import { Timestamp } from 'firebase/firestore';
-
+import { useColletion } from '@/hooks/usecollection';
 // 등록하기 기능
 type FeedBack = {
   id: number;
