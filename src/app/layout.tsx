@@ -19,7 +19,7 @@ export default function RootLayout({
         />
         <link
           rel="canonical"
-          href="https://health-center-zuicy-99.vercel.app"
+          href="https://health-center-zuicy-99.vercel.app/"
         ></link>
 
         <meta

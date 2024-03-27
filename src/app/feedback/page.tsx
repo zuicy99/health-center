@@ -9,7 +9,8 @@ import { SlLayers } from 'react-icons/sl';
 
 import dayjs from 'dayjs';
 import { Timestamp } from 'firebase/firestore';
-import { useColletion } from '@/hooks/usecollection';
+import { useColletion } from '@/hooks/useCollection';
+// import { useColletion } from '@/hooks/usecollection';
 // 등록하기 기능
 type FeedBack = {
   id: number;

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://health-center-zuicy-99.vercel.app
+
+# Sitemaps
+Sitemap: https://health-center-zuicy-99.vercel.app/sitemap.xml
