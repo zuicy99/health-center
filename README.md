@@ -2,12 +2,12 @@
 
 ## 배포
 
-- vercel
-- `https://health-center-zuicy-99.vercel.app/`
+- vercel(https://health-center-devgreact.vercel.app)
 
-## 활용 API
+## 활용 기술
 
 - 네이버 지도 API
+- 보건소 공공 API
 - FireBase storage
 - Next.js (14)
 - TailWind
@@ -15,9 +15,8 @@
 - TypeScript
 - SASS
 - copy-to-clipboard
-- git/github
-- 공공 API(보건소 API)
-
-## 프로젝트 빌드시 주의사항
-
-- Next.js 14 버전
+- Git/GitHub
+- 공공API(보건소 API)
+- Naver Search Advisor
+- Google Search
+- GA4

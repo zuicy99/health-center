@@ -6,11 +6,10 @@ import styles from '@/styles/header.module.scss';
 import Link from 'next/link';
 import { PiSealCheck } from 'react-icons/pi';
 import { SlLayers } from 'react-icons/sl';
-
+import { useColletion } from '@/hooks/useCollection';
 import dayjs from 'dayjs';
 import { Timestamp } from 'firebase/firestore';
-import { useColletion } from '@/hooks/useCollection';
-// import { useColletion } from '@/hooks/usecollection';
+
 // 등록하기 기능
 type FeedBack = {
   id: number;
@@ -28,7 +27,8 @@ const Feedback = (): JSX.Element => {
   // FB Hook 가져오기
   const { documents, error } = useColletion('feedback');
   // feedback Collection 만들기
-  const { rerponse, addDocument, deleteDocument } = useFirebase('feedback');
+  const { rerponse, addDocument, deleteDocument, editDocument } =
+    useFirebase('feedback');
   // 입력창 관련 state
   const [message, setMessage] = useState<string>('');
   const [nickName, setNickName] = useState<string>('');
@@ -78,9 +78,14 @@ const Feedback = (): JSX.Element => {
     setFeedBackList(list);
   }, [documents]);
 
+  // 내용 수정 관련
+  const [editMessage, setEditMessage] = useState<string>('');
+
   const editChangeMode = (_id: string, _isEdit: boolean) => {
     const arr: FeeBackWidthEdit[] = feedbackList.map(item => {
       if (item.id === _id) {
+        // 기존 message 출력 처리
+        setEditMessage(item.message);
         return { ...item, edit: _isEdit };
       } else {
         // 한개만 수정되도록 state 관리
@@ -88,6 +93,15 @@ const Feedback = (): JSX.Element => {
       }
     });
     setFeedBackList(arr);
+  };
+
+  // 새로운 내용으로 업데이트 하기
+  const editSave = (_id: string) => {
+    // id 를 이용한 업데이트
+    // 화면용 state 인 edit 속성은 불필요하므로 원본에서 찾아요
+    const editData = documents?.find(item => item.id === _id);
+    const updateData = { ...editData, message: editMessage };
+    editDocument(_id, updateData);
   };
 
   return (
@@ -249,17 +263,18 @@ const Feedback = (): JSX.Element => {
                           {item.edit ? (
                             <div className="flex justify-between items-center">
                               <textarea
-                                id="message"
-                                name="message"
-                                value={message}
+                                id="editmessage"
+                                name="editmessage"
+                                value={editMessage}
                                 onChange={e => {
-                                  // setMessage(e.target.value);
+                                  setEditMessage(e.target.value);
                                 }}
                                 className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                               ></textarea>
                               <button
                                 onClick={() => {
-                                  // deleteFeedback(item.id);
+                                  // 새로운 내용으로 저장
+                                  editSave(item.id);
                                 }}
                                 className="ml-4 text-indigo-500 inline-flex items-center mt-4"
                               >
