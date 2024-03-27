@@ -1,4 +1,3 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function RootLayout({
           name="google-site-verification"
           content="Q2bHOLs6jaFYy4NK_gCCdUCjf270wQ8zYE_nerDd7lw"
         />
-        <GoogleAnalytics gaId="G-566YCW7S5D" />
       </head>
       <body>{children}</body>
     </html>
