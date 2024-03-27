@@ -1,5 +1,6 @@
 // collectin 에 데이터들을 가져와서 출력
-import { useState, useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
 import { appFireStore } from '../fb/fbconfig';
 import {
   onSnapshot,
