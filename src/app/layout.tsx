@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
 export const metadata: Metadata = {
@@ -12,6 +13,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          name="naver-site-verification"
+          content="e7cea65ca91c59924fc778a08e7d55d6413d53f5"
+        />
+        <link
+          rel="canonical"
+          href="https://health-center-zuicy-99.vercel.app"
+        ></link>
+
+        <meta
+          name="google-site-verification"
+          content="Q2bHOLs6jaFYy4NK_gCCdUCjf270wQ8zYE_nerDd7lw"
+        />
+        <GoogleAnalytics gaId="G-566YCW7S5D" />
+      </head>
       <body>{children}</body>
     </html>
   );
